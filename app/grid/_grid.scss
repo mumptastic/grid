@@ -46,11 +46,11 @@ $gap: 1em;
   @for $i from 1 through $grid-columns {
     .col-#{$i}{
         flex: 0 0 auto;
-        width: (100%/$grid-columns)*$i;
+        width: calc(100% / $grid-columns)*$i;
     }
 
     .offset-#{$i}{
-        margin-left: (100%/$grid-columns)*$i;
+        margin-left: calc(100% / $grid-columns)*$i;
     }
 
   }
@@ -72,11 +72,11 @@ $gap: 1em;
     @for $i from 1 through $grid-columns {
         .col-sm-#{$i} {
             flex: 0 0 auto;
-            width: (100%/$grid-columns)*$i;
+            width: calc(100% / $grid-columns)*$i;
         }
 
         .offset-sm-#{$i}{
-            margin-left: (100%/$grid-columns)*$i;
+            margin-left: calc(100% / $grid-columns)*$i;
         }
     }
     .offset-sm-0 {
@@ -101,11 +101,11 @@ $gap: 1em;
     @for $i from 1 through $grid-columns {
         .col-md-#{$i} {
             flex: 0 0 auto;
-            width: (100%/$grid-columns)*$i;
+            width: calc(100% / $grid-columns)*$i;
         }
 
         .offset-md-#{$i}{
-            margin-left: (100%/$grid-columns)*$i;
+            margin-left: calc(100% / $grid-columns)*$i;
         }
     }
     .offset-md-0 {
@@ -130,11 +130,11 @@ $gap: 1em;
     @for $i from 1 through $grid-columns {
         .col-lg-#{$i} {
             flex: 0 0 auto;
-            width: (100%/$grid-columns)*$i;
+            width: calc(100% / $grid-columns)*$i;
         }
 
         .offset-lg-#{$i}{
-            margin-left: (100%/$grid-columns)*$i;
+            margin-left: calc(100% / $grid-columns)*$i;
         }
     }
     .offset-lg-0 {

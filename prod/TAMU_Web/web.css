@@ -72,7 +72,7 @@ select {
     scroll-behavior: auto !important;
   }
 }
-body {
+* {
   font-family: "Open Sans", sans-serif;
 }
 
@@ -477,7 +477,6 @@ body {
 .col-1 {
   flex: 0 0 auto;
   width: 8.3333333333%;
-  border: 1px solid tomato;
 }
 
 .offset-1 {
@@ -487,7 +486,6 @@ body {
 .col-2 {
   flex: 0 0 auto;
   width: 16.6666666667%;
-  border: 1px solid tomato;
 }
 
 .offset-2 {
@@ -497,7 +495,6 @@ body {
 .col-3 {
   flex: 0 0 auto;
   width: 25%;
-  border: 1px solid tomato;
 }
 
 .offset-3 {
@@ -507,7 +504,6 @@ body {
 .col-4 {
   flex: 0 0 auto;
   width: 33.3333333333%;
-  border: 1px solid tomato;
 }
 
 .offset-4 {
@@ -517,7 +513,6 @@ body {
 .col-5 {
   flex: 0 0 auto;
   width: 41.6666666667%;
-  border: 1px solid tomato;
 }
 
 .offset-5 {
@@ -527,7 +522,6 @@ body {
 .col-6 {
   flex: 0 0 auto;
   width: 50%;
-  border: 1px solid tomato;
 }
 
 .offset-6 {
@@ -537,7 +531,6 @@ body {
 .col-7 {
   flex: 0 0 auto;
   width: 58.3333333333%;
-  border: 1px solid tomato;
 }
 
 .offset-7 {
@@ -547,7 +540,6 @@ body {
 .col-8 {
   flex: 0 0 auto;
   width: 66.6666666667%;
-  border: 1px solid tomato;
 }
 
 .offset-8 {
@@ -557,7 +549,6 @@ body {
 .col-9 {
   flex: 0 0 auto;
   width: 75%;
-  border: 1px solid tomato;
 }
 
 .offset-9 {
@@ -567,7 +558,6 @@ body {
 .col-10 {
   flex: 0 0 auto;
   width: 83.3333333333%;
-  border: 1px solid tomato;
 }
 
 .offset-10 {
@@ -577,7 +567,6 @@ body {
 .col-11 {
   flex: 0 0 auto;
   width: 91.6666666667%;
-  border: 1px solid tomato;
 }
 
 .offset-11 {
@@ -587,7 +576,6 @@ body {
 .col-12 {
   flex: 0 0 auto;
   width: 100%;
-  border: 1px solid tomato;
 }
 
 .offset-12 {
