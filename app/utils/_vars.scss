@@ -1,0 +1,11 @@
+@use "sass:map";
+
+$spacer: 1em !default;
+$spacers:(
+    0: 0,
+    xs: ($spacer * .25),
+    sm: ($spacer * .5),
+    md: $spacer,
+    lg: ($spacer * 1.5),
+    xxl: ($spacer * 3)
+);

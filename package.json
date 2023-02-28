@@ -1,0 +1,24 @@
+{
+  "name": "tamu-web-utilities",
+  "version": "1.0.0",
+  "description": "Utility classes and grid system for TAMU Web",
+  "main": "index.js",
+  "scripts": {
+    "tamu:develop": "sass --watch --error-css app/web.scss prod/TAMU_Web/web.css",
+    "tamu:build": "sass --style=compressed app/web.scss prod/TAMU_Web/web.min.css"
+    
+  },
+  "keywords": [
+    "tamu",
+    "tamu",
+    "marcomm",
+    "web",
+    "tamu",
+    "web"
+  ],
+  "author": "Michael Nichols",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.58.3"
+  }
+}

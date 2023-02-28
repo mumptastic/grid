@@ -1,0 +1,13 @@
+@use 'vars' as *;
+
+@each $name, $size in $spacers {
+    .p-#{$name}{ padding: $size; }
+    .px-#{$name}{ 
+        padding-top: $size; padding-bottom: $size; }
+    .py-#{$name}{ 
+        padding-left: $size; padding-right: $size; }
+    .pl-#{$name}{ padding-left: $size; }
+    .pr-#{$name}{ padding-right: $size; }
+    .pt-#{$name}{ padding-top: $size; }
+    .pb-#{$name}{ padding-bottom: $size; }
+}

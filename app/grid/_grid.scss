@@ -1,0 +1,144 @@
+@use 'sass:map';
+@use 'breakpoints' as *;
+
+$grid-columns: 12;
+$gap: 1em;
+
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  --gutter-x: #{$gap};
+  padding-right: calc(var(--gutter-x) * 0.5);
+  padding-left: calc(var(--gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc($gap);
+  }
+
+  .row > * {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    gap: calc(1em * 0.5);
+  }
+  
+  .col {
+    flex: 1 0 0%;
+  }
+
+  .col-auto {
+    flex: 1 1 auto;
+    width: auto;
+  }
+
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}{
+        flex: 0 0 auto;
+        width: (100%/$grid-columns)*$i;
+    }
+
+    .offset-#{$i}{
+        margin-left: (100%/$grid-columns)*$i;
+    }
+
+  }
+
+  @include sm {
+    .container-sm, .container {
+        max-width: map.get($breakpoints, "sm");
+      }
+
+    .col-sm {
+        flex: 1 0 0%;
+    }
+
+    .col-sm-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through $grid-columns {
+        .col-sm-#{$i} {
+            flex: 0 0 auto;
+            width: (100%/$grid-columns)*$i;
+        }
+
+        .offset-sm-#{$i}{
+            margin-left: (100%/$grid-columns)*$i;
+        }
+    }
+    .offset-sm-0 {
+        margin-left: 0;
+    }
+}
+
+@include md {
+    .container-md, .container {
+        max-width: map.get($breakpoints, "md");
+      }
+
+    .col-md {
+        flex: 1 0 0%;
+    }
+
+    .col-md-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through $grid-columns {
+        .col-md-#{$i} {
+            flex: 0 0 auto;
+            width: (100%/$grid-columns)*$i;
+        }
+
+        .offset-md-#{$i}{
+            margin-left: (100%/$grid-columns)*$i;
+        }
+    }
+    .offset-md-0 {
+        margin-left: 0;
+    }
+}
+
+@include lg {
+    .container-lg, .container {
+        max-width: map.get($breakpoints, "lg");
+      }
+
+    .col-lg {
+        flex: 1 0 0%;
+    }
+
+    .col-lg-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through $grid-columns {
+        .col-lg-#{$i} {
+            flex: 0 0 auto;
+            width: (100%/$grid-columns)*$i;
+        }
+
+        .offset-lg-#{$i}{
+            margin-left: (100%/$grid-columns)*$i;
+        }
+    }
+    .offset-lg-0 {
+        margin-left: 0;
+    }
+}
+

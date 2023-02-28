@@ -1,0 +1,81 @@
+@use 'breakpoints' as *;
+@use "sass:math";
+
+$grid-columns: 12;
+$gap: 1em;
+
+//Container
+.container { 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    gap: $gap;
+    margin-bottom: $gap;
+    align-content: space-between;
+}
+
+.row-grid {
+    display: grid;
+    grid-gap:$gap;
+    grid-template-columns: repeat(auto, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+}
+
+
+
+@for $i from 1 through 2 {
+    .col_#{$i}_of_2 {
+        grid-row-start:#{i};
+        grid-row-end:#{i};
+        background-color: lightgreen;
+    }
+}
+
+@for $i from 1 through 3 {
+    .col_#{$i}_of_3 {
+        grid-row-start:#{i};
+        grid-row-end:#{i};
+        background-color: lightgreen;
+    }
+}
+
+@for $i from 1 through 4 {
+    .col_#{$i}_of_4 {
+        grid-row-start:#{i};
+        grid-row-end:#{i};
+        background-color: lightgreen;
+    }
+}
+
+@for $i from 1 through 6 {
+    .col_#{$i}_of_6 {
+        grid-row-start:#{i};
+        grid-row-end:#{i};
+        background-color: lightgreen;
+    }
+}
+
+
+
+
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        box-sizing: border-box;
+        flex-grow: 1;
+        width: calc($i*100% / $grid-columns - $gap);
+    }
+}
+
+.col-item {
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+ 

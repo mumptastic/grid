@@ -1,0 +1,13 @@
+@use 'vars' as *;
+
+@each $name, $size in $spacers {
+    .m-#{$name}{ margin: $size; }
+    .mx-#{$name}{ 
+        margin-top: $size; margin-bottom: $size; }
+    .my-#{$name}{ 
+        margin-left: $size; margin-right: $size; }
+    .ml-#{$name}{ margin-left: $size; }
+    .mr-#{$name}{ margin-right: $size; }
+    .mt-#{$name}{ margin-top: $size; }
+    .mb-#{$name}{ margin-bottom: $size; }
+}
