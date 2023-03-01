@@ -2,4 +2,6 @@
 @use 'grid';
 
 .container { background-color:lightcyan;}
-
+[class^="col-"] {
+    background-color: tomato;
+}

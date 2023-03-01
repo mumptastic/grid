@@ -1,8 +1,10 @@
 @use 'sass:map';
+@use 'sass:math';
 @use 'breakpoints' as *;
 
 $grid-columns: 12;
-$gap: 1em;
+$gutter-x: 1.5rem;
+$gutter-y: 0;
 
 
 .container,
@@ -12,56 +14,106 @@ $gap: 1em;
 .container-lg,
 .container-md,
 .container-sm {
-  --gutter-x: #{$gap};
-  padding-right: calc(var(--gutter-x) * 0.5);
-  padding-left: calc(var(--gutter-x) * 0.5);
-  margin-right: auto;
-  margin-left: auto;
+    padding-right: calc(#{$gutter-x} * 0.5);
+    padding-left: calc(#{$gutter-x} * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+
+@include sm {
+    .container-sm, .container {
+        max-width: 540px;
+    }
+}
+
+@include md {
+    .container-md, .container-sm, .container {
+        max-width: 720px;
+    }
+}
+
+@include lg {
+    .container-lg, .container-md, .container-sm, .container {
+        max-width: 960px;
+    }
+}
+
+@include xl {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1140px;
+    }
+}
+
+@include xxl {
+    .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1320px;
+    }
 }
 
 .row {
-    padding: 1em;
     display: flex;
     flex-wrap: wrap;
-    margin-top: calc($gap);
+    margin-bottom: 1em;
+    margin-right: calc(-0.5 * $gutter-x);
+    margin-left: calc(-0.5 * $gutter-x);
   }
 
-  .row > * {
+.row > * {
     box-sizing: border-box;
     flex-shrink: 0;
     width: 100%;
     max-width: 100%;
-    gap: calc(1em * 0.5);
-  }
-  
-  .col {
-    flex: 1 0 0%;
-  }
+    padding-right: calc(#{$gutter-x} * 0.5);
+    padding-left: calc(#{$gutter-x} * 0.5);
+    margin-top: #{$gutter-y};
+}
 
-  .col-auto {
-    flex: 1 1 auto;
+.col { 
+    flex: 1 0 0%; 
+    margin: 1rem;
+}
+.row-cols-auto > * { flex: 0 0 auto; width: auto; }
+
+@for $i from 1 through 6 {
+    .row-cols-#{$i} > * {
+        flex: 0 0 auto;
+        width: calc((100 / $i)*1%);
+    }
+}
+
+.col-auto {
+    flex: 0 0 auto;
     width: auto;
   }
 
-  @for $i from 1 through $grid-columns {
-    .col-#{$i}{
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
         flex: 0 0 auto;
-        width: calc(100% / $grid-columns)*$i;
+        width: calc($i*100% / $grid-columns);
+        // margin: 1rem;
     }
 
-    .offset-#{$i}{
-        margin-left: calc(100% / $grid-columns)*$i;
+    .offset-#{$i} {
+        margin-left: calc($i*100% / $grid-columns)
     }
+}
 
-  }
-
-  @include sm {
-    .container-sm, .container {
-        max-width: map.get($breakpoints, "sm");
-      }
-
+@include sm {
     .col-sm {
         flex: 1 0 0%;
+    }
+
+    .row-cols-sm-auto > * {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through 6 {
+        .row-cols-sm-#{$i} > * {
+            flex: 0 0 auto;
+            width: calc((100 / $i)*1%);
+        }
     }
 
     .col-sm-auto {
@@ -72,25 +124,31 @@ $gap: 1em;
     @for $i from 1 through $grid-columns {
         .col-sm-#{$i} {
             flex: 0 0 auto;
-            width: calc(100% / $grid-columns)*$i;
+            width: calc($i*100% / $grid-columns)
         }
 
-        .offset-sm-#{$i}{
-            margin-left: calc(100% / $grid-columns)*$i;
+        .offset-sm-#{$i} {
+            margin-left: calc($i*100% / $grid-columns)
         }
     }
-    .offset-sm-0 {
-        margin-left: 0;
-    }
+
 }
 
 @include md {
-    .container-md, .container {
-        max-width: map.get($breakpoints, "md");
-      }
-
     .col-md {
         flex: 1 0 0%;
+    }
+
+    .row-cols-md-auto > * {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through 6 {
+        .row-cols-md-#{$i} > * {
+            flex: 0 0 auto;
+            width: calc((100 / $i)*1%);
+        }
     }
 
     .col-md-auto {
@@ -101,28 +159,34 @@ $gap: 1em;
     @for $i from 1 through $grid-columns {
         .col-md-#{$i} {
             flex: 0 0 auto;
-            width: calc(100% / $grid-columns)*$i;
+            width: calc($i*100% / $grid-columns)
         }
 
-        .offset-md-#{$i}{
-            margin-left: calc(100% / $grid-columns)*$i;
+        .offset-md-#{$i} {
+            margin-left: calc($i*100% / $grid-columns)
         }
     }
-    .offset-md-0 {
-        margin-left: 0;
-    }
+
 }
 
 @include lg {
-    .container-lg, .container {
-        max-width: map.get($breakpoints, "lg");
-      }
-
     .col-lg {
         flex: 1 0 0%;
     }
 
-    .col-lg-auto {
+    .row-cols-lg-auto > * {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through 6 {
+        .row-cols-lg-#{$i} > * {
+            flex: 0 0 auto;
+            width: calc((100 / $i)*1%);
+        }
+    }
+
+    .col-md-auto {
         flex: 0 0 auto;
         width: auto;
     }
@@ -130,15 +194,82 @@ $gap: 1em;
     @for $i from 1 through $grid-columns {
         .col-lg-#{$i} {
             flex: 0 0 auto;
-            width: calc(100% / $grid-columns)*$i;
+            width: calc($i*100% / $grid-columns)
         }
 
-        .offset-lg-#{$i}{
-            margin-left: calc(100% / $grid-columns)*$i;
+        .offset-lg-#{$i} {
+            margin-left: calc($i*100% / $grid-columns)
         }
     }
-    .offset-lg-0 {
-        margin-left: 0;
-    }
+
 }
 
+@include xl {
+    .col-xl {
+        flex: 1 0 0%;
+    }
+
+    .row-cols-xl-auto > * {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through 6 {
+        .row-cols-xl-#{$i} > * {
+            flex: 0 0 auto;
+            width: calc((100 / $i)*1%);
+        }
+    }
+
+    .col-xl-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through $grid-columns {
+        .col-xl-#{$i} {
+            flex: 0 0 auto;
+            width: calc($i*100% / $grid-columns)
+        }
+
+        .offset-xl-#{$i} {
+            margin-left: calc($i*100% / $grid-columns)
+        }
+    }
+
+}
+
+@include xxl {
+    .col-xxl {
+        flex: 1 0 0%;
+    }
+
+    .row-cols-xxl-auto > * {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through 6 {
+        .row-cols-xxl-#{$i} > * {
+            flex: 0 0 auto;
+            width: calc((100 / $i)*1%);
+        }
+    }
+
+    .col-xxl-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    @for $i from 1 through $grid-columns {
+        .col-xxl-#{$i} {
+            flex: 0 0 auto;
+            width: calc($i*100% / $grid-columns)
+        }
+
+        .offset-xxl-#{$i} {
+            margin-left: calc($i*100% / $grid-columns)
+        }
+    }
+
+}
